@@ -297,7 +297,7 @@ void GPIO_IRQConfig(uint8_t IRQNumber, uint8_t IRQPriority, uint8_t EnorDi)
 }
 
 /****************************************************************************************************
-  * @fn 				   - GPIO_IRQHandling														*
+  * @fn 			   - GPIO_IRQHandling														*
   * 																								*
   * @brief			   - this Function enables or disable peripheral clock for the given GPIO port  *
   * 																								*

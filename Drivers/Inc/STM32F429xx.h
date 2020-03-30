@@ -33,7 +33,7 @@
  */
 
 #define PERIPH_BASEADDR						0x40000000U
-#define APB1PERIPH_BASEADDR					PERIPH_BASE
+#define APB1PERIPH_BASEADDR					PERIPH_BASEADDR
 #define APB2PERIPH_BASEADDR					0x40010000U
 #define AHB1PERIPH_BASEADDR 				0x40020000U
 #define AHB2PERIPH_BASEADDR 				0x50000000U
@@ -61,9 +61,9 @@
 #define SPI1_BASEADDR						(APB2PERIPH_BASEADDR + 0x3000)
 #define SPI2_BASEADDR						(APB1PERIPH_BASEADDR + 0x3800)
 #define SPI3_BASEADDR						(APB1PERIPH_BASEADDR + 0x3C00)
-//#define SPI4_BASEADDR						(APB2PERIPH_BASEADDR + 0x3400)
-//#define SPI5_BASEADDR						(APB2PERIPH_BASEADDR + 0x5000)
-//#define SPI6_BASEADDR						(APB2PERIPH_BASEADDR + 0x5400)
+#define SPI4_BASEADDR						(APB2PERIPH_BASEADDR + 0x3400)
+#define SPI5_BASEADDR						(APB2PERIPH_BASEADDR + 0x5000)
+#define SPI6_BASEADDR						(APB2PERIPH_BASEADDR + 0x5400)
 
 
 /*
@@ -153,7 +153,7 @@ typedef struct
 
 
 /*
- *		Peripheral definitions
+ *		Peripheral definitions of GPIOx
  */
 
 #define GPIOA								((GPIO_RegDef_t*)GPIOA_BASEADDR)
@@ -170,6 +170,22 @@ typedef struct
 
 
 #define RCC									((RCC_RegDef_t*)RCC_BASEADDR)
+
+
+
+/*
+ * 	Peripheral definitions of SPIx
+ */
+
+
+#define SPI1								((SPI_RegDef_t*)SPI1_BASEADDR)
+#define SPI2								((SPI_RegDef_t*)SPI2_BASEADDR)
+#define SPI3								((SPI_RegDef_t*)SPI3_BASEADDR)
+#define SPI4								((SPI_RegDef_t*)SPI4_BASEADDR)
+#define SPI5								((SPI_RegDef_t*)SPI5_BASEADDR)
+#define SPI6								((SPI_RegDef_t*)SPI6_BASEADDR)
+
+
 
 /*
  * Clock Enable Macros For GPIOx Peripherals
@@ -225,48 +241,48 @@ typedef struct
  * Clock Disable Macros For GPIOx Peripherals
  */
 
-#define GPIOA_PCLK_DI()						( RCC->AHB1ENR |= ( 1 << 0 ) )
-#define GPIOB_PCLK_DI()						( RCC->AHB1ENR |= ( 1 << 1 ) )
-#define GPIOC_PCLK_DI()						( RCC->AHB1ENR |= ( 1 << 2 ) )
-#define GPIOD_PCLK_DI()						( RCC->AHB1ENR |= ( 1 << 3 ) )
-#define GPIOE_PCLK_DI()						( RCC->AHB1ENR |= ( 1 << 4 ) )
-#define GPIOF_PCLK_DI()						( RCC->AHB1ENR |= ( 1 << 5 ) )
-#define GPIOG_PCLK_DI()						( RCC->AHB1ENR |= ( 1 << 6 ) )
-#define GPIOH_PCLK_DI()						( RCC->AHB1ENR |= ( 1 << 7 ) )
-#define GPIOI_PCLK_DI()						( RCC->AHB1ENR |= ( 1 << 8 ) )
-//#define GPIOJ_PCLK_DI()					( RCC->AHB1ENR |= ( 	   ) )
-//#define GPIOK_PCLK_DI()					( RCC->AHB1ENR |= (        ) )
+#define GPIOA_PCLK_DI()						( RCC->AHB1ENR &= ~( 1 << 0 ) )
+#define GPIOB_PCLK_DI()						( RCC->AHB1ENR &= ~( 1 << 1 ) )
+#define GPIOC_PCLK_DI()						( RCC->AHB1ENR &= ~( 1 << 2 ) )
+#define GPIOD_PCLK_DI()						( RCC->AHB1ENR &= ~( 1 << 3 ) )
+#define GPIOE_PCLK_DI()						( RCC->AHB1ENR &= ~( 1 << 4 ) )
+#define GPIOF_PCLK_DI()						( RCC->AHB1ENR &= ~( 1 << 5 ) )
+#define GPIOG_PCLK_DI()						( RCC->AHB1ENR &= ~( 1 << 6 ) )
+#define GPIOH_PCLK_DI()						( RCC->AHB1ENR &= ~( 1 << 7 ) )
+#define GPIOI_PCLK_DI()						( RCC->AHB1ENR &= ~( 1 << 8 ) )
+//#define GPIOJ_PCLK_DI()					( RCC->AHB1ENR &= ~( 	   ) )
+//#define GPIOK_PCLK_DI()					( RCC->AHB1ENR &= ~(        ) )
 
 /*
  * Clock Disable Macros For I2Cx Peripherals
  */
 
-#define I2C1_PCLK_DI()						( RCC->APB1ENR |= ( 1 << 21 ) )
-#define I2C2_PCLK_DI()						( RCC->APB1ENR |= ( 1 << 22 ) )
-#define I2C3_PCLK_DI()						( RCC->APB1ENR |= ( 1 << 23 ) )
+#define I2C1_PCLK_DI()						( RCC->APB1ENR &= ~( 1 << 21 ) )
+#define I2C2_PCLK_DI()						( RCC->APB1ENR &= ~( 1 << 22 ) )
+#define I2C3_PCLK_DI()						( RCC->APB1ENR &= ~( 1 << 23 ) )
 
 /*
  * Clock Disable Macros For SPIx Peripherals
  */
 
-#define SPI1_PCLK_DI()						( RCC->APB2ENR |= ( 1 << 12 ) )
-#define SPI2_PCLK_DI()						( RCC->APB2ENR |= ( 1 << 14 ) )
-#define SPI3_PCLK_DI()						( RCC->APB2ENR |= ( 1 << 15 ) )
-//#define SPI4_PCLK_DI()					( RCC->APB2ENR |= ( 	    ) )
-//#define SPI5_PCLK_DI()					( RCC->APB2ENR |= ( 	    ) )
-//#define SPI6_PCLK_DI()					( RCC->APB2ENR |= (         ) )
+#define SPI1_PCLK_DI()						( RCC->APB2ENR &= ~( 1 << 12 ) )
+#define SPI2_PCLK_DI()						( RCC->APB2ENR &= ~( 1 << 14 ) )
+#define SPI3_PCLK_DI()						( RCC->APB2ENR &= ~( 1 << 15 ) )
+//#define SPI4_PCLK_DI()					( RCC->APB2ENR &= ~( 	    ) )
+//#define SPI5_PCLK_DI()					( RCC->APB2ENR &= ~( 	    ) )
+//#define SPI6_PCLK_DI()					( RCC->APB2ENR &= ~(         ) )
 
 
 /*
  * Clock Disable Macros For UARTx and USARTx Peripherals
  */
 
-#define USART1_PCLK_DI()					( RCC->APB2ENR |= ( 1 << 4 ) )
-#define USART2_PCLK_DI()					( RCC->APB2ENR |= ( 1 << 17 ) )
-#define USART3_PCLK_DI()					( RCC->APB2ENR |= ( 1 << 18 ) )
-#define UART4_PCLK_DI()						( RCC->APB2ENR |= ( 1 << 14 ) )
-#define UART5_PCLK_DI()						( RCC->APB2ENR |= ( 1 << 15 ) )
-#define USART6_PCLK_DI()					( RCC->APB2ENR |= ( 1 << 5 ) )
+#define USART1_PCLK_DI()					( RCC->APB2ENR &= ~( 1 << 4 ) )
+#define USART2_PCLK_DI()					( RCC->APB2ENR &= ~( 1 << 17 ) )
+#define USART3_PCLK_DI()					( RCC->APB2ENR &= ~( 1 << 18 ) )
+#define UART4_PCLK_DI()						( RCC->APB2ENR &= ~( 1 << 14 ) )
+#define UART5_PCLK_DI()						( RCC->APB2ENR &= ~( 1 << 15 ) )
+#define USART6_PCLK_DI()					( RCC->APB2ENR &= ~( 1 << 5 ) )
 
 
 /*
@@ -310,6 +326,67 @@ typedef struct
 #define RESET 					DISABLE
 #define GPIO_PIN_SET			SET
 #define GPIO_PIN_RESET			RESET
+
+/************************************************************************************************************
+ * 			Bit position definitions of SPI peripherals														*
+ ************************************************************************************************************/
+
+/*
+ * 	Bit position definition of SPI_CR1 register
+ */
+
+#define SPI_CR1_CPHA						0
+#define SPI_CR1_CPOL						1
+#define SPI_CR1_MSTR						2
+#define SPI_CR1_BR							3
+#define SPI_CR1_SPE							6
+#define SPI_CR1_SSI							8
+#define SPI_CR1_SSM							9
+#define SPI_CR1_RXONLY						10
+#define SPI_CR1_DFF							11
+#define SPI_CR1_CRCNEXT						12
+#define SPI_CR1_CRCEN						13
+#define SPI_CR1_BIDIOE						14
+#define SPI_CR1_BIDIMODE					15
+
+/*
+ * 	Bit position definition of SPI_CR2 register
+ */
+#define SPI_CR2_RXDMAEN						0
+#define SPI_CR2_TXDMAEN						1
+#define SPI_CR2_SSOE						2
+#define SPI_CR2_FRF							4
+#define SPI_CR2_ERRIE						5
+#define SPI_CR2_RXNEIE						6
+#define SPI_CR2_TXEIE						7
+
+
+/*
+ * 	Bit position definition of SPI_SR register
+ */
+
+
+#define SPI_SR_RXNE							0
+#define SPI_SR_TXE							1
+#define SPI_SR_CHSIDE						2
+#define SPI_SR_UDR							3
+#define SPI_SR_CRCERR						4
+#define SPI_SR_MODF							5
+#define SPI_SR_OVR							6
+#define SPI_SR_BSY							7
+#define SPI_SR_FRE							8
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
