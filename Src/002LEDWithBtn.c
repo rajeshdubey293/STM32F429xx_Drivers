@@ -12,7 +12,7 @@
 
 void delay(void)
 {
-	for(uint32_t i = 0; i < 100000; i++);
+	for(uint32_t i = 0; i < 500000; i++);
 }
 
 int main()
@@ -43,10 +43,10 @@ int main()
 	{
 		if(GPIO_ReadFromInputPin(GPIOA, GPIO_PIN_NO_0) == BTN_PRESSED)
 		{
+			delay();
 			GPIO_ToggleOutputPin(GPIOG, GPIO_PIN_NO_13);
 		}
 	}
-
 	return 0;
 }
 

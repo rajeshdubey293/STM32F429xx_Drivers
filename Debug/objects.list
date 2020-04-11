@@ -1,0 +1,6 @@
+"Drivers/Src/GPIOx_Drivers.o"
+"Drivers/Src/SPIx_Drivers.o"
+"Src/003_SPI.o"
+"Src/syscalls.o"
+"Src/sysmem.o"
+"Startup/startup_stm32f429zitx.o"
