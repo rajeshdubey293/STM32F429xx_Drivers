@@ -71,19 +71,13 @@
 							<tool id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.objcopy.symbolsrec.1669068357" name="MCU Output Converter Motorola S-rec with symbols" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.objcopy.symbolsrec"/>
 						</toolChain>
 					</folderInfo>
-					<fileInfo id="com.st.stm32cube.ide.mcu.gnu.managedbuild.config.exe.debug.535450527.1616657077" name="timer.c" rcbsApplicability="disable" resourcePath="Src/timer.c" toolsToInvoke="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.1233709738.1802515977">
-						<tool id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.1233709738.1802515977" name="MCU GCC Compiler" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.1233709738"/>
-						<tool customBuildStep="true" id="org.eclipse.cdt.managedbuilder.ui.rcbs.1358812092" name="Resource Custom Build Step">
-							<inputType id="org.eclipse.cdt.managedbuilder.ui.rcbs.inputtype.104193217" name="Resource Custom Build Step Input Type">
-								<additionalInput kind="additionalinputdependency" paths=""/>
-							</inputType>
-							<outputType id="org.eclipse.cdt.managedbuilder.ui.rcbs.outputtype.1084404258" name="Resource Custom Build Step Output Type"/>
-						</tool>
+					<fileInfo id="com.st.stm32cube.ide.mcu.gnu.managedbuild.config.exe.debug.535450527.728333789" name="SPI_TxOnly_Arduino.c" rcbsApplicability="disable" resourcePath="Src/SPI_TxOnly_Arduino.c" toolsToInvoke="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.1233709738.128532200">
+						<tool id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.1233709738.128532200" name="MCU GCC Compiler" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.1233709738"/>
 					</fileInfo>
 					<sourceEntries>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Drivers"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Inc"/>
-						<entry excluding="timer.c|test.c|msp.c|it.c|SPI_Tx_Testing.c|SPI_CMD_Handling.c|SPI_CMD_Handling_IT.c|I2C_Slave_Tx_String2.c|I2C_Slave_Tx_String.c|I2C_Master_Tx_Testing.c|I2C_Master_Rx_Testing.c|I2C_Master_Rx_Testing_IT.c|002LEDWithBtn.c|001LEDToggle.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Src"/>
+						<entry excluding="SPI_TxOnly_Arduino.c|timer.c|test.c|msp.c|it.c|SPI_Tx_Testing.c|SPI_CMD_Handling.c|SPI_CMD_Handling_IT.c|I2C_Slave_Tx_String2.c|I2C_Slave_Tx_String.c|I2C_Master_Tx_Testing.c|I2C_Master_Rx_Testing.c|I2C_Master_Rx_Testing_IT.c|002LEDWithBtn.c|001LEDToggle.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Src"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Startup"/>
 					</sourceEntries>
 				</configuration>
